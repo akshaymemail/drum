@@ -1,4 +1,4 @@
-// Listen For Button
+// Listen For Button Click
 for (let index = 0; index < document.querySelectorAll(".drum").length; index++) {
     document.querySelectorAll('.drum')[index].addEventListener('click', function () {
         playSound(this.innerText);
@@ -6,13 +6,13 @@ for (let index = 0; index < document.querySelectorAll(".drum").length; index++) 
     })
 }
 
-// Listen For KeyBoard
+// Listen For KeyBoard Click
 document.addEventListener('keypress', function () {
-    playSound(event.key)
+    playSound(event.key);
     buttonPressed(event.key);
 })
 
-// Play Sound
+// Play Sound Function
 function playSound(key) {
     switch (key) {
         case 'w':
@@ -36,13 +36,12 @@ function playSound(key) {
         case 'l':
             new Audio('sounds/kick-bass.mp3').play();
             break;
-
         default:
             console.log("Wrong Key Pressed...");
             break;
     }
 }
-
+// Add Animation On Click
 function buttonPressed(key) {
     document.querySelector('.' + key).classList.add('pressed');
     setTimeout(function () {
